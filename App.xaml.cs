@@ -1,4 +1,6 @@
-﻿namespace Beschleunigungssensor;
+﻿using Microsoft.Maui.Devices.Sensors;
+
+namespace Beschleunigungssensor;
 
 public partial class App : Application
 {
@@ -12,5 +14,6 @@ public partial class App : Application
     protected override void OnStart()
     {
         base.OnStart();
+		Accelerometer.Start(SensorSpeed.Default);
     }
 }
