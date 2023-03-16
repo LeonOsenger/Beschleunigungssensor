@@ -6,8 +6,17 @@ public partial class MainPage : ContentPage
 {
 	public MainPage()
 	{
-		InitializeComponent();
-	}
+        InitializeComponent();
+
+        try
+        {
+            ToggleAccelerometer();
+        }
+        catch (Exception ex)
+        {
+            LabelSensorData.Text = ex.Message;
+        }
+    }
 
     public void ToggleAccelerometer()
     {
@@ -15,23 +24,27 @@ public partial class MainPage : ContentPage
         {
             if (!Accelerometer.Default.IsMonitoring)
             {
-                // Turn on accelerometer
+                //Eventhandler für Beschleunigungsmotor wird Aboniert 
                 Accelerometer.Default.ReadingChanged += Accelerometer_ReadingChanged;
-                Accelerometer.Default.Start(SensorSpeed.UI);
             }
             else
             {
-                // Turn off accelerometer
-                Accelerometer.Default.Stop();
+                //Eventhandler für Beschleunigungsmotor wird nicht mehr Aboniert
                 Accelerometer.Default.ReadingChanged -= Accelerometer_ReadingChanged;
             }
         }
     }
 
+    /// <summary>
+    /// Eventhandler der AUsgelösst wird wenn der Senosr Datenermittelt
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
     {
-        // Update UI Label with accelerometer state
-        LabelSensorData.Text = "Test";
+        //Ausgabe der Werte des Sensors
+        LabelSensorData.Text = e.Reading.ToString();
+        
     }
 }
 

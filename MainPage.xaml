@@ -2,7 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Beschleunigungssensor.MainPage">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions"
+                        Value="Center"/>
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
@@ -10,12 +19,12 @@
             VerticalOptions="Center">
 
             <Label Text="Drehen sie ihr Handy!"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
                    FontAttributes="Bold"
                    FontSize="Large" />
 
-            <Label x:Name="LabelSensorData"/>
+            <Label x:Name="LabelSensorData" />
+            
+            
 
         </VerticalStackLayout>
     </ScrollView>

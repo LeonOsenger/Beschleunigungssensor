@@ -14,6 +14,34 @@ public partial class App : Application
     protected override void OnStart()
     {
         base.OnStart();
-		Accelerometer.Start(SensorSpeed.Default);
+        try 
+        {
+            if (Accelerometer.Default.IsSupported)
+            {
+                Accelerometer.Start(SensorSpeed.UI);
+            }
+        } 
+        catch (Exception) 
+        {
+            throw;
+        }
+    }
+
+    protected override void OnSleep()
+    {
+        base.OnSleep();
+        try
+        {
+            if (Accelerometer.Default.IsSupported)
+            {
+                Accelerometer.Default.Stop();
+            }
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        
     }
 }
