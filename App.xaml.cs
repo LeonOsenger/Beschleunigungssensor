@@ -16,6 +16,7 @@ public partial class App : Application
         base.OnStart();
         try 
         {
+            //Wenn Sensor vorhanden: Sensor Wird gestartet 
             if (Accelerometer.Default.IsSupported)
             {
                 Accelerometer.Start(SensorSpeed.UI);
@@ -32,6 +33,7 @@ public partial class App : Application
         base.OnSleep();
         try
         {
+            //Wenn Sensor vorhanden: Sensor Wird gestopt
             if (Accelerometer.Default.IsSupported)
             {
                 Accelerometer.Default.Stop();

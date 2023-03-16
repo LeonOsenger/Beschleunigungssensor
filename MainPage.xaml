@@ -23,8 +23,9 @@
                    FontSize="Large" />
 
             <Label x:Name="LabelSensorData" />
-            
-            
+
+            <Label x:Name="LabelPositionInfo"
+                   Margin="0,50,0,0"/>
 
         </VerticalStackLayout>
     </ScrollView>
