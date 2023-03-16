@@ -18,12 +18,15 @@
             Padding="30,0"
             VerticalOptions="Center">
 
+            <!--Label für instrucktionen-->
             <Label Text="Drehen sie ihr Handy!"
                    FontAttributes="Bold"
                    FontSize="Large" />
 
+            <!--Label angzeige der Sensor Daten-->
             <Label x:Name="LabelSensorData" />
 
+            <!--Label anzeige ob Handy vertikal oder Horizontal gehoben--> 
             <Label x:Name="LabelPositionInfo"
                    Margin="0,50,0,0"/>
 

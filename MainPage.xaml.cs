@@ -20,7 +20,9 @@ public partial class MainPage : ContentPage
         }
     }
     
-    //
+    /// <summary>
+    /// Falls der Sensor Daten ermittelt Wird das ReadingChanged Event aboniert und falls nicht wird nicht mehr abonniert
+    /// </summary>
     public void ActivateAccelerometerEventhandler()
     {
         if (Accelerometer.Default.IsSupported)
